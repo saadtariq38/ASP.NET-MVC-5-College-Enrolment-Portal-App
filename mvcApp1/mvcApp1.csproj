@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -143,6 +144,10 @@
     <Compile Include="Migrations\202208011113146_SecondMigrationToAddTeachersTable.cs" />
     <Compile Include="Migrations\202208011113146_SecondMigrationToAddTeachersTable.designer.cs">
       <DependentUpon>202208011113146_SecondMigrationToAddTeachersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208011306514_NewteachersAddedAndAnnotationsOnCourse.cs" />
+    <Compile Include="Migrations\202208011306514_NewteachersAddedAndAnnotationsOnCourse.designer.cs">
+      <DependentUpon>202208011306514_NewteachersAddedAndAnnotationsOnCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Teacher.cs" />
@@ -193,6 +198,8 @@
     <Content Include="Views\Course\GetCourses.cshtml" />
     <Content Include="Views\Course\GetEnrolled.cshtml" />
     <Content Include="Views\Home\AboutClubs.cshtml" />
+    <Content Include="Views\Teacher\Index.cshtml" />
+    <Content Include="Views\Teacher\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -219,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208011113146_SecondMigrationToAddTeachersTable.resx">
       <DependentUpon>202208011113146_SecondMigrationToAddTeachersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208011306514_NewteachersAddedAndAnnotationsOnCourse.resx">
+      <DependentUpon>202208011306514_NewteachersAddedAndAnnotationsOnCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
