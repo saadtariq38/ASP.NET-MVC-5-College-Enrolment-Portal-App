@@ -1,0 +1,45 @@
+﻿@model mvcApp1.Models.User
+
+@{
+    ViewBag.Title = "User Information";
+}
+
+<h2>User Information</h2>
+
+
+<div>
+    <h4>Students</h4>
+    <hr />
+    <table class="table table-bordered table-hover">
+
+
+        <tr class="btn-primary">
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Add/Delete</th>
+        </tr>
+
+       
+
+        @foreach (var user in ViewBag.Users)
+        {
+            <tr>
+                <td>@user.userId</td>
+                <td>@user.firstName</td>
+                <td>@user.lastName</td>
+                <td>@user.age</td>
+                <td>
+                    <button type="button" class="btn btn-primary">Edit</button> |
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
