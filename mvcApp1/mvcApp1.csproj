@@ -149,6 +149,10 @@
     <Compile Include="Migrations\202208011306514_NewteachersAddedAndAnnotationsOnCourse.designer.cs">
       <DependentUpon>202208011306514_NewteachersAddedAndAnnotationsOnCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208021723165_addedForeignKeyAndTeacherToCourse.cs" />
+    <Compile Include="Migrations\202208021723165_addedForeignKeyAndTeacherToCourse.designer.cs">
+      <DependentUpon>202208021723165_addedForeignKeyAndTeacherToCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\CourseContext.cs" />
@@ -156,6 +160,7 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CourseTeacherViewModel.cs" />
     <Compile Include="ViewModels\EnrolledViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,11 +200,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AboutUser.cshtml" />
-    <Content Include="Views\Course\GetCourses.cshtml" />
     <Content Include="Views\Course\GetEnrolled.cshtml" />
     <Content Include="Views\Home\AboutClubs.cshtml" />
     <Content Include="Views\Teacher\Index.cshtml" />
     <Content Include="Views\Teacher\Create.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\GetCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208011306514_NewteachersAddedAndAnnotationsOnCourse.resx">
       <DependentUpon>202208011306514_NewteachersAddedAndAnnotationsOnCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208021723165_addedForeignKeyAndTeacherToCourse.resx">
+      <DependentUpon>202208021723165_addedForeignKeyAndTeacherToCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
