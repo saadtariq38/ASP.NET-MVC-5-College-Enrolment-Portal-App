@@ -18,6 +18,8 @@ namespace mvcApp1.Controllers
         {
             _context = new CourseContext();
         }
+
+        // GET: Course/GetCourses
         public ActionResult GetCourses()
         {
             //Eager loading
@@ -28,6 +30,7 @@ namespace mvcApp1.Controllers
 
         // GET: Course/GetEnrolled
 
+        /*
         public ActionResult GetEnrolled()
         {
             var student= new User() {userId = 5, firstName = "omer", lastName = "khalid", age = 19};
@@ -42,9 +45,11 @@ namespace mvcApp1.Controllers
             return View(enrolledStudent);
         }
 
+        */
         public ActionResult Create()
         {
             var teachers = _context.Teachers.ToList();
+
 
             var viewModel = new CourseTeacherViewModel
             {
@@ -57,10 +62,54 @@ namespace mvcApp1.Controllers
         [HttpPost]
         public ActionResult Create(Course course)
         {
+
             _context.Courses.Add(course);
             _context.SaveChanges();
+            return RedirectToAction("GetCourses");
+        }
 
-            return Content("Course registered successfully");
+        public ActionResult Edit(int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+
+            var course = _context.Courses.SingleOrDefault(x => x.Id == id);
+
+            if(course == null)
+            {
+                return HttpNotFound();
+            }
+
+            var ViewModel = new CourseTeacherViewModel
+            {
+                Course = course,
+                Teachers = _context.Teachers.ToList()
+            };
+
+            return View("Create", ViewModel);
+            
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+
+            var course = _context.Courses.SingleOrDefault(x => x.Id == id);
+
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
+            _context.Courses.Remove(course);
+            _context.SaveChanges();
+
+            return RedirectToAction("GetCourses");
         }
         protected override void Dispose(bool disposing)
         {

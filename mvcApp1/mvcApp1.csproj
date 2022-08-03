@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -153,6 +154,18 @@
     <Compile Include="Migrations\202208021723165_addedForeignKeyAndTeacherToCourse.designer.cs">
       <DependentUpon>202208021723165_addedForeignKeyAndTeacherToCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208031129543_AddedUserEntity.cs" />
+    <Compile Include="Migrations\202208031129543_AddedUserEntity.designer.cs">
+      <DependentUpon>202208031129543_AddedUserEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208031212459_UserEntity.cs" />
+    <Compile Include="Migrations\202208031212459_UserEntity.designer.cs">
+      <DependentUpon>202208031212459_UserEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208031227190_IsActiveAnnotationChangeToUser.cs" />
+    <Compile Include="Migrations\202208031227190_IsActiveAnnotationChangeToUser.designer.cs">
+      <DependentUpon>202208031227190_IsActiveAnnotationChangeToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\CourseContext.cs" />
@@ -160,6 +173,7 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\CourseTeacherViewModel.cs" />
     <Compile Include="ViewModels\EnrolledViewModel.cs" />
   </ItemGroup>
@@ -199,13 +213,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\AboutUser.cshtml" />
     <Content Include="Views\Course\GetEnrolled.cshtml" />
     <Content Include="Views\Home\AboutClubs.cshtml" />
     <Content Include="Views\Teacher\Index.cshtml" />
     <Content Include="Views\Teacher\Create.cshtml" />
     <Content Include="Views\Course\Create.cshtml" />
     <Content Include="Views\Course\GetCourses.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -238,6 +253,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208021723165_addedForeignKeyAndTeacherToCourse.resx">
       <DependentUpon>202208021723165_addedForeignKeyAndTeacherToCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208031129543_AddedUserEntity.resx">
+      <DependentUpon>202208031129543_AddedUserEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208031212459_UserEntity.resx">
+      <DependentUpon>202208031212459_UserEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208031227190_IsActiveAnnotationChangeToUser.resx">
+      <DependentUpon>202208031227190_IsActiveAnnotationChangeToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

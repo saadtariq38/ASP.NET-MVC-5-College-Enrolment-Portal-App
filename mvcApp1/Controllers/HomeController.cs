@@ -30,6 +30,7 @@ namespace mvcApp1.Controllers
 
         //  Home/AboutUser
 
+        /*
         public ActionResult AboutUser()
         {
            
@@ -48,6 +49,7 @@ namespace mvcApp1.Controllers
             return View();
         }
 
+        */
 
         [Route("Home/passingYear/{month:int:range(1,12)}/{year:int:min(1990)}")]
         public ActionResult ByPassingYear(int month, int year)

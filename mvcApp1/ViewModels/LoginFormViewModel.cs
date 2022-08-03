@@ -4,16 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace mvcApp1.Models
+namespace mvcApp1.ViewModels
 {
-    public class User
+    public class LoginFormViewModel
     {
-       
-        public int userId { get; set; }
-        [Required(ErrorMessage = "Email is required")]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-
         [Required(ErrorMessage = "Username is required")]
         [Display(Name = "User Name")]
         [StringLength(50)]
@@ -26,9 +20,5 @@ namespace mvcApp1.Models
         [MaxLength(50)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
-        [Display(Name = "Is Active")]
-        public bool IsActive { get; set; }
-        
     }
 }
