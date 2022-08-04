@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<mvcApp1.Models.Teacher>
 
+@if (Session["UserName"] == null)
+{
+    Response.Redirect("~/Account/Login", false);
+}
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -14,19 +19,20 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeacherName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseTaught)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TeacherId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TeacherId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseTaught)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TeacherId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TeacherId })
+            </td>
+        </tr>
+    }
 
 </table>

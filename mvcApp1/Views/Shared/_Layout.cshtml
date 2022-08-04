@@ -17,9 +17,21 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Student Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Course List", "GetCourses", "Course", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Teacher List", "Index", "Teacher", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Club List", "AboutClubs", "Home", new { area = "" }, new { @class = "navbar-brand" })
+               
+
+                @if (Session["UserName"] != null)
+                {
+                    @Html.ActionLink("Course List", "GetCourses", "Course", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Teacher List", "Index", "Teacher", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })
+
+                }
+
 
             </div>
             <div class="navbar-collapse collapse">

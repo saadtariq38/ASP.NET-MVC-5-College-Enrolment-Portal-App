@@ -1,9 +1,15 @@
 ﻿@model mvcApp1.Models.Teacher
 
-@using (Html.BeginForm("Create", "Teacher")) 
+
+@if (Session["UserName"] == null)
+{
+    Response.Redirect("~/Account/Login", false);
+}
+
+@using (Html.BeginForm("Create", "Teacher"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h2>Teacher Information</h2>
         <hr />

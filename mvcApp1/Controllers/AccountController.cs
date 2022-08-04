@@ -81,6 +81,12 @@ namespace mvcApp1.Controllers
            
         }
 
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("login");
+        }
+
 
     }
 }

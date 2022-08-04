@@ -1,5 +1,10 @@
 ﻿@model mvcApp1.ViewModels.CourseTeacherViewModel
 
+
+@if (Session["UserName"] == null)
+{
+    Response.Redirect("~/Account/Login", false);
+}
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()

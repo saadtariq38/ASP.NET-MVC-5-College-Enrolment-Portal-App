@@ -51,6 +51,8 @@ namespace mvcApp1.Controllers
 
         */
 
+
+
         [Route("Home/passingYear/{month:int:range(1,12)}/{year:int:min(1990)}")]
         public ActionResult ByPassingYear(int month, int year)
         {
@@ -58,7 +60,7 @@ namespace mvcApp1.Controllers
             return Content("Month: " + month + " year: " + year);
         }
 
-
+        
    
         public ActionResult AboutClubs()
         {
@@ -72,6 +74,7 @@ namespace mvcApp1.Controllers
 
             return View(Clubs);
         }
+        
 
     }
 }
