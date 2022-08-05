@@ -49,10 +49,16 @@ namespace mvcApp1.Controllers
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            return Content("User successfully registered");
+            Session["UserName"] = user.UserName;
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult LoginModal()
         {
             return View();
         }

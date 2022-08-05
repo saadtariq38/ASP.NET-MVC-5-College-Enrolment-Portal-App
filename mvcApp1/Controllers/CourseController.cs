@@ -49,24 +49,56 @@ namespace mvcApp1.Controllers
         public ActionResult Create()
         {
             var teachers = _context.Teachers.ToList();
-
+            Course course = new Course
+            {
+                Id = 0
+            };
 
             var viewModel = new CourseTeacherViewModel
             {
-                Course = new Course(),
+                Course = course,
                 Teachers = teachers
             };
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Create(Course course)
+        public ActionResult Create(CourseTeacherViewModel ViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Create", ViewModel.Course);
+            }
 
-            _context.Courses.Add(course);
+            if (ViewModel.Course.Id > 0)
+            {
+                _context.Entry(ViewModel.Course).State = System.Data.Entity.EntityState.Modified;
+            }
+            else
+            {
+                _context.Courses.Add(ViewModel.Course);
+            }
+
+            
             _context.SaveChanges();
             return RedirectToAction("GetCourses");
         }
+
+        /*
+         * 
+        [HttpPost]
+        public ActionResult EditCourse(Course course)
+        {
+
+            _context.Entry(course).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return RedirectToAction("GetCourses");
+        }
+
+        */
+
+        
 
         public ActionResult Edit(int? id)
         {
@@ -74,7 +106,7 @@ namespace mvcApp1.Controllers
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
-
+            
             var course = _context.Courses.SingleOrDefault(x => x.Id == id);
 
             if(course == null)
