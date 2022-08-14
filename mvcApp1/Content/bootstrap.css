@@ -11285,6 +11285,11 @@ textarea.form-control-lg {
         padding: 15px;
         margin: auto;
   }
+
+    .background-full-cover {
+        background: url('https://source.unsplash.com/1400x1000/?campus,college,students') no-repeat center center fixed;
+        background-size: cover;
+    }
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
