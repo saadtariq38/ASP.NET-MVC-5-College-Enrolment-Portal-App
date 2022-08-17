@@ -9,6 +9,14 @@ namespace mvcApp1.Controllers
 {
     public class HomeController : Controller
     {
+
+        private CourseContext _context;
+
+        public HomeController()
+        {
+            _context = new CourseContext();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -21,12 +29,32 @@ namespace mvcApp1.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        
+        public ActionResult PartialModalView()
         {
-            ViewBag.Message = "Your contact page.";
+
+            return PartialView("~/Views/Home/PartialModalView.cshtml");
+        }
+
+        [HttpPost]
+        public ActionResult PartialModalView(Contact ContactData)
+        {
+            _context.Contacts.Add(ContactData);
+            _context.SaveChanges();
+
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(Contact ContactData)
+        {
+            _context.Contacts.Add(ContactData);
+            _context.SaveChanges(); 
 
             return View();
         }
+
+        
 
         //  Home/AboutUser
 

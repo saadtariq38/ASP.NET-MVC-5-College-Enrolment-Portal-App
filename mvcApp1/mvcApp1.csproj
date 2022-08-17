@@ -166,7 +166,20 @@
     <Compile Include="Migrations\202208031227190_IsActiveAnnotationChangeToUser.designer.cs">
       <DependentUpon>202208031227190_IsActiveAnnotationChangeToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208151040391_addedContactUsTable.cs" />
+    <Compile Include="Migrations\202208151040391_addedContactUsTable.designer.cs">
+      <DependentUpon>202208151040391_addedContactUsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208151240134_changesToContactModel.cs" />
+    <Compile Include="Migrations\202208151240134_changesToContactModel.designer.cs">
+      <DependentUpon>202208151240134_changesToContactModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171138131_test.cs" />
+    <Compile Include="Migrations\202208171138131_test.designer.cs">
+      <DependentUpon>202208171138131_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\CourseContext.cs" />
     <Compile Include="Models\Club.cs" />
@@ -261,6 +274,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Course\EditCourse.cshtml" />
     <Content Include="Views\Account\LoginModal.cshtml" />
+    <Content Include="Views\Home\PartialModalView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -295,6 +309,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208031227190_IsActiveAnnotationChangeToUser.resx">
       <DependentUpon>202208031227190_IsActiveAnnotationChangeToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208151040391_addedContactUsTable.resx">
+      <DependentUpon>202208151040391_addedContactUsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208151240134_changesToContactModel.resx">
+      <DependentUpon>202208151240134_changesToContactModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171138131_test.resx">
+      <DependentUpon>202208171138131_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

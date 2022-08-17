@@ -12,6 +12,8 @@ namespace mvcApp1.Models
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<User> Users { get; set; } 
+
+        public DbSet<Contact> Contacts { get; set; }
        
     }
 }
