@@ -1,32 +1,34 @@
 ﻿@model mvcApp1.Models.Contact
 
-<!-- Modal -->
+
+
+
+    <div class="modal-header">
+        <h5 class="modal-title" id="Contact Us">Contact Us</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form id="contactForm">
+            <label>Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control my-2" })
+
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control my-2" })
+
+            <label>Phone number</label>
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control my-2" })
+
+            <label>Reach out to us!</label>
+            @Html.TextAreaFor(m => m.Query, new { @class = "form-control my-2" })
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="btnSave" class="btn btn-primary">Submit</button>
+    </div>
+
+
+
+<!--
 <div id="ContactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Contact us" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="contactForm">
-                    <label>Name</label>
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control my-2" })
-
-                    <label>Email</label>
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control my-2" })
-
-                    <label>Phone number</label>
-                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control my-2" })
-
-                    <label>Reach out to us!</label>
-                    @Html.TextAreaFor(m => m.Query, new { @class = "form-control my-2" })
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btnCancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="btnSave" class="btn btn-primary">Submit</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+-->
