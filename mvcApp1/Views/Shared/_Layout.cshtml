@@ -100,7 +100,8 @@
                         <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li class="nav-item">
-                            <button type="button" class="btn nav-link" data-bs-toggle="modal" data-bs-target="#PlaceHolderModal">
+
+                            <button type="button" id="modalOpenFooter" class="btn nav-link" data-bs-toggle="modal" data-bs-target="#PlaceHolderModal">
                                 Contact Us
                             </button>
                         </li>
@@ -129,12 +130,14 @@
 
         </div>
     </div>
+</div>
 
-        <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
-        $("#btnSave").click(function () {
-            var contactFormData = $("#contactForm").serialize();
 
+        $(document).on("click", "#btnSave", function () {
+
+            var contactFormData = $("#contactForm").serialize();
             // Script for submit button in contact form
             //stores data to the database 'contact us' table
 
@@ -144,11 +147,13 @@
                 url: "/Home/PartialModalView",
                 data: contactFormData,
                 success: function () {
-                    window.location.href = "/Home/Index";
+                    window.location.href = "/";
                 }
             })
         })
 
+
+        //open Modal on the click of 'contact' button in nav bar
         $('#modalOpen').click(function() {
 
 
@@ -156,7 +161,23 @@
             $.get(url, function (data) {
                 $("#contactRendered").html(data);
                 $("#PlaceHolderModal").modal("show");
-                
+
+
+            })
+
+
+
+        })
+
+        //open Modal on the click of 'contact' button in footer nav links
+        $('#modalOpenFooter').click(function() {
+
+
+            var url = '@Url.Action("PartialModalView", "Home")';
+            $.get(url, function (data) {
+                $("#contactRendered").html(data);
+                $("#PlaceHolderModal").modal("show");
+
 
             })
 
@@ -168,73 +189,79 @@
 
 
     })
-        </script>
+</script>
 
 
 
-        <!--
-            $('#contactRendered').load(url);
 
-                    $.get(url, function (data) {
-                        $("#contactRendered").html(data);
-                        $("#contactRendered").modal("show");
+<!--
 
-                    })
-
-            $('#contactRendered').load(url);
-
-             $('#contactRendered').modal('show');
-
-        <div id="ContactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Contact us" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    {
-                        Html.RenderPartial("PartialModalView");
-                    }
-                </div>
+    var contactFormData = $(this).parents('.modal').find('#contactForm').serialize();
+    
 
 
+    $('#contactRendered').load(url);
 
-             $("#modalOpen").click(function () {
-                    $.ajax({
-
-                        url: 'Url.Content("~/Home/PartialModalView")',
-                        success: function(result) {
-                            $('#PlaceHolderHere').innerHTML = result;
-                        }
-                    });
-                })
-
-        <script>
-            $(document).ready(function () {
-                $("#btnSave").click(function () {
-                    var contactFormData = $("contactForm").serialize();
-
-                    $.ajax({
-                        type: "POST",
-                        url: "/Home/PartialModalView",
-                        data: contactFormData,
-                        success: function () {
-                            window.location.href = "/Home/Index";
-                        }
-                    })
-                })
-
+            $.get(url, function (data) {
+                $("#contactRendered").html(data);
+                $("#contactRendered").modal("show");
 
             })
-        </script>
 
-            $(function () {
-                    var PlaceHolderElement = $("#PlaceHolderHere");
-                    $.get(url).done(function (data) {
-                        PlaceHolderElement.html(data);
-                        PlaceHolderElement.find('.modal').modal('show')
-                    })
-                });
+    $('#contactRendered').load(url);
+
+     $('#contactRendered').modal('show');
+
+<div id="ContactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Contact us" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {
+                Html.RenderPartial("PartialModalView");
+            }
+        </div>
 
 
-            data-bs-toggle="modal" data-bs-target="#ContactModal"
+
+     $("#modalOpen").click(function () {
+            $.ajax({
+
+                url: 'Url.Content("~/Home/PartialModalView")',
+                success: function(result) {
+                    $('#PlaceHolderHere').innerHTML = result;
+                }
+            });
+        })
+
+<script>
+    $(document).ready(function () {
+        $("#btnSave").click(function () {
+            var contactFormData = $("contactForm").serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/PartialModalView",
+                data: contactFormData,
+                success: function () {
+                    window.location.href = "/Home/Index";
+                }
+            })
+        })
 
 
-            data-url="Url.Action("PartialModalView", "Home")"
-        -->
+    })
+</script>
+
+    $(function () {
+            var PlaceHolderElement = $("#PlaceHolderHere");
+            $.get(url).done(function (data) {
+                PlaceHolderElement.html(data);
+                PlaceHolderElement.find('.modal').modal('show')
+            })
+        });
+
+
+    data-bs-toggle="modal" data-bs-target="#ContactModal"
+
+
+    data-url="Url.Action("PartialModalView", "Home")"
+-->

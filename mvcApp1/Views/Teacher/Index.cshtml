@@ -5,34 +5,45 @@
     Response.Redirect("~/Account/Login", false);
 }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table table-bordered table-hover">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TeacherName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseTaught)
-        </th>
-        <th></th>
-    </tr>
+<div class="container my-5">
 
-    @foreach (var item in Model)
-    {
+    <table class="table table-hover  table-striped table-light my-3">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeacherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseTaught)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TeacherId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TeacherId })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseTaught)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseTaught)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TeacherId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TeacherId })
+                </td>
+            </tr>
+        }
+
+
+    
+    </table>
+    
+</div>
+
+<div>
+    <p class="mx-5 nav-link">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+
+</div>
